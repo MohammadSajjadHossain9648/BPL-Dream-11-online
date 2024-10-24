@@ -15,6 +15,7 @@ export default {
         black_color: 'rgb(19, 19, 19)',
         shade_black_color_1: 'rgba(19, 19, 19, 0.7)',
         shade_black_color_2: 'rgba(19, 19, 19, 0.6)',
+        shade_black_hr_color: 'rgba(19, 19, 19, 0.1)',
         shade_black_placeholder_color: 'rgba(19, 19, 19, 0.4)',
         shade_black_bg_color: 'rgba(19, 19, 19, 0.05)',
 
