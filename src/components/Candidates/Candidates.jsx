@@ -13,7 +13,7 @@ const Candidates = () => {
     }, []);
 
     return (
-        <div className="">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {
                 candidates.map((candidate, idx) => <Candidate key={idx} candidate={candidate}></Candidate>)
             }
