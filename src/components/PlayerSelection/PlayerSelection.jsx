@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import './PlayerSelection.css'
+import Candidates from '../Candidates/Candidates';
+import Squad from '../Squad/Squad';
+import { useState } from 'react';
+
 
 const PlayerSelection = ({ isActive, handlePageChange }) => {
+    // header conditional rendering
     const {page, status} = isActive;
-
     const renderAuthText = () => {
         return status ? "Available Players" : "Selected Player (0/12)";
     }
@@ -11,7 +15,7 @@ const PlayerSelection = ({ isActive, handlePageChange }) => {
 
     return (
         <div>
-            <div className="sm:my-8 md:my-12 lg:my-20 flex justify-between items-center">
+            <div className="sm:mt-8 md:mt-12 lg:mt-20 mb-6 flex justify-between items-center">
                 <h1 className="text-xl font-bold">{renderAuthText()}</h1>
                 <div className="rounded-lg overflow-hidden">
                     <button onClick={() => handlePageChange("available")} className={`${status ? "btn rounded-none px-8 active" : "btn rounded-none px-8 non_active"}`}>Available</button>
@@ -19,12 +23,11 @@ const PlayerSelection = ({ isActive, handlePageChange }) => {
                 </div>
             </div>
 
-            {/* <div className="">
+            <div>
                 {
                     (page === "available") ? <Candidates></Candidates> : <Squad></Squad>
                 }
-            </div> */}
-
+            </div>
         </div>
     );
 };
