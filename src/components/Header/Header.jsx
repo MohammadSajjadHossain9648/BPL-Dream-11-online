@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png';
 import coin from '../../assets/coin.svg';
 import Banner from '../Banner/Banner';
 
-const Header = () => {
+const Header = ({ coins, handleToAddCoin }) => {
     return (
         <div>
             {/* navbar design */}
@@ -51,14 +51,14 @@ const Header = () => {
                         </ul>
                     </div>
                     <button className="btn bg-white_color">
-                        <span className='text-sm font-semibold'>0 coin</span>
+                        <span className='text-sm font-semibold'>{coins} coin</span>
                         <img src={coin} alt="coin icon image" />
                     </button>
                 </div>
             </div>
 
             {/* banner design */}
-            <Banner></Banner>
+            <Banner coins={coins} handleToAddCoin={handleToAddCoin}></Banner>
         </div>
     );
 };
