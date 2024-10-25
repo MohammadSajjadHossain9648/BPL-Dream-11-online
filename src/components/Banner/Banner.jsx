@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import bgShadow from '../../assets/bg-shadow.png';
 import bannerLogo from '../../assets/banner-main.png';
 
-const Banner = (({ coins, handleToAddCoin }) => {
+const Banner = (({ handleToAddCoin }) => {
     return (
         <div className="relative bg-black_color rounded-3xl overflow-hidden my-8">
             {/* image layer over Background */}
@@ -20,7 +20,7 @@ const Banner = (({ coins, handleToAddCoin }) => {
 });
 
 Banner.propTypes = {
-
+    handleToAddCoin: PropTypes.func.isRequired,
 };
 
 export default Banner;

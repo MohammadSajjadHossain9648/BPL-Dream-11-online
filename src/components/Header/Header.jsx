@@ -58,13 +58,14 @@ const Header = ({ coins, handleToAddCoin }) => {
             </div>
 
             {/* banner design */}
-            <Banner coins={coins} handleToAddCoin={handleToAddCoin}></Banner>
+            <Banner handleToAddCoin={handleToAddCoin}></Banner>
         </div>
     );
 };
 
 Header.propTypes = {
-
+    coins: PropTypes.number.isRequired,
+    handleToAddCoin: PropTypes.func.isRequired,
 };
 
 export default Header;
