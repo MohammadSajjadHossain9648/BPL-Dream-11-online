@@ -84,6 +84,7 @@ function App() {
       notify2(name);
       return ;
     }
+
     if(selectedPlayers.length === 11){
       notify3();
       return ;
