@@ -23,7 +23,8 @@ const Squad = ({ selectedPlayer, handleToRemovePlayer }) => {
 };
 
 Squad.propTypes = {
-
+    selectedPlayer: PropTypes.object.isRequired,
+    handleToRemovePlayer: PropTypes.object.isRequired
 };
 
 export default Squad;

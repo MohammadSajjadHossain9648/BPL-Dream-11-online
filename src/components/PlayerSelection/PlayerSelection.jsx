@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import './PlayerSelection.css'
 import Candidates from '../Candidates/Candidates';
-import { useState } from 'react';
 import Squads from '../Squads/Squads';
 
 
@@ -32,7 +31,12 @@ const PlayerSelection = ({ isActive, handlePageChange, handleToChoosePlayer, sel
 };
 
 PlayerSelection.propTypes = {
-
+    isActive: PropTypes.object.isRequired,
+    handlePageChange: PropTypes.func.isRequired,
+    handleToChoosePlayer: PropTypes.func.isRequired,
+    selectedPlayers: PropTypes.object.isRequired,
+    selectedNumber: PropTypes.number.isRequired,
+    handleToRemovePlayer: PropTypes.object.isRequired
 };
 
 export default PlayerSelection;

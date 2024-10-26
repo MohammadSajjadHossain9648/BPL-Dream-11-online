@@ -15,7 +15,9 @@ const Squads = ({ selectedPlayers, handlePageChange, handleToRemovePlayer }) => 
 };
 
 Squads.propTypes = {
-
+    selectedPlayers: PropTypes.object.isRequired,
+    handlePageChange: PropTypes.func.isRequired,
+    handleToRemovePlayer: PropTypes.object.isRequired
 };
 
 export default Squads;
