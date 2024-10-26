@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Squads from '../Squads/Squads';
 
 
-const PlayerSelection = ({ isActive, handlePageChange, handleToChoosePlayer, selectedPlayers, selectedNumber}) => {
+const PlayerSelection = ({ isActive, handlePageChange, handleToChoosePlayer, selectedPlayers, selectedNumber, handleToRemovePlayer }) => {
     // header conditional rendering
     const {page, status} = isActive;
     const renderAuthText = () => {
@@ -24,7 +24,7 @@ const PlayerSelection = ({ isActive, handlePageChange, handleToChoosePlayer, sel
 
             <div>
                 {
-                    (page === "available") ? <Candidates handleToChoosePlayer={handleToChoosePlayer}></Candidates> : <Squads selectedPlayers={selectedPlayers}></Squads>
+                    (page === "available") ? <Candidates handleToChoosePlayer={handleToChoosePlayer}></Candidates> : <Squads selectedPlayers={selectedPlayers} handlePageChange={handlePageChange} handleToRemovePlayer={handleToRemovePlayer}></Squads>
                 }
             </div>
         </div>

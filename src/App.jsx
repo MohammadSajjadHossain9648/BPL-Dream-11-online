@@ -7,7 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [coins, setCoins] = useState(0);
+  const [coins, setCoins] = useState(40000000);
 
   const handleToAddCoin = () => {
     const newCoins = coins + 4000000;
@@ -44,7 +44,7 @@ function App() {
   }
 
   const notify2 = (name) => {
-    toast.alert(`${name} has already been selected. Please choose another player!`, {
+    toast.error(`${name} has already been selected. Please choose another player!`, {
       position: "top-center",
       autoClose: 5000,
     });
@@ -58,11 +58,11 @@ function App() {
   }
 
 
-  //check the player is sold or not
+  //check the player criteria to bid
   const [selectedPlayers, setSelectedPlayers] = useState([]);
 
-  const handleToChoosePlayer = (candidate) => {
-    const {id, name, bidding_price} = candidate;
+  const handleToChoosePlayer = (player) => {
+    const {id, name, bidding_price} = player;
 
     //check balance to bid a player
     if(coins < bidding_price){
@@ -79,13 +79,19 @@ function App() {
     }
 
     //update the available coin, selected player and selected player number
-    const updateSelectedPlayers = [...selectedPlayers, candidate];
+    const updateSelectedPlayers = [...selectedPlayers, player];
     setSelectedPlayers(updateSelectedPlayers);
 
     const updateCoins = coins - bidding_price;
     setCoins(updateCoins);
 
     notify3(name);
+  }
+
+  const handleToRemovePlayer = (player) => {
+    const {id} = player;
+    const updateSelectedPlayers = selectedPlayers.filter(selectedPlayer => selectedPlayer.id !== id);
+    setSelectedPlayers(updateSelectedPlayers);
   }
 
   return (
@@ -101,6 +107,7 @@ function App() {
             handleToChoosePlayer={handleToChoosePlayer}
             selectedPlayers={selectedPlayers}
             selectedNumber={selectedPlayers.length}
+            handleToRemovePlayer={handleToRemovePlayer}
         ></PlayerSelection>
       </div>
 
