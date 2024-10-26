@@ -12,7 +12,7 @@
 ## Key Features
 - **User Budget Management**: Keep track of coins; increase/decrease as players are added or removed.
 - **Dynamic Player Selection**: A responsive interface for selecting and removing players with restrictions on duplicate selections.
-- **Interactive Notifications**: Uses React-Toastify for alerts and React-PropTypes for type-checking props, making interactions smoother and more engaging.
+- **Interactive Notifications**: Uses React-Toastify for alerts, making interactions smoother and more engaging.
 
 ## ES6 features used
 
