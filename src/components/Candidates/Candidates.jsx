@@ -26,7 +26,7 @@ const Candidates = ({ handleToChoosePlayer }) => {
 };
 
 Candidates.propTypes = {
-
+    handleToChoosePlayer: PropTypes.func.isRequired
 };
 
 export default Candidates;

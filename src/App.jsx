@@ -7,7 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [coins, setCoins] = useState(40000000);
+  const [coins, setCoins] = useState(0);
 
   const handleToAddCoin = () => {
     const newCoins = coins + 4000000;

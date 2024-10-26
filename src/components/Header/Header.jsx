@@ -66,7 +66,7 @@ const Header = ({ coins, handleToAddCoin, isActive }) => {
 Header.propTypes = {
     coins: PropTypes.number.isRequired,
     handleToAddCoin: PropTypes.func.isRequired,
-    isActive: PropTypes.object.isRequired,
+    isActive: PropTypes.object.isRequired
 };
 
 export default Header;

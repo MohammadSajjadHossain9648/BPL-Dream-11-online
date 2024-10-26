@@ -3,7 +3,7 @@ import bgShadow from '../../assets/bg-shadow.png';
 import bannerLogo from '../../assets/banner-main.png';
 
 const Banner = ({ handleToAddCoin, isActive }) => {
-    const {page, status} = isActive;
+    const {page} = isActive;
 
     return (
         <div className="relative bg-black_color rounded-3xl overflow-hidden my-8">

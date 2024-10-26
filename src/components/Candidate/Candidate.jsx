@@ -39,7 +39,8 @@ const Candidate = ({ candidate, handleToChoosePlayer }) => {
 };
 
 Candidate.propTypes = {
-
+    candidate: PropTypes.object.isRequired,
+    handleToChoosePlayer: PropTypes.func.isRequired
 };
 
 export default Candidate;
