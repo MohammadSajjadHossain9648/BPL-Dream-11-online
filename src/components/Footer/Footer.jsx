@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo-footer.png';
 import bgShadow from '../../assets/bg-shadow.png';
 
 const Footer = () => {

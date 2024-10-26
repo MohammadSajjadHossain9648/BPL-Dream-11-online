@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Squad = () => {
+const Squads = ({selectedPlayers}) => {
     return (
         <div>
 
@@ -8,8 +8,8 @@ const Squad = () => {
     );
 };
 
-Squad.propTypes = {
+Squads.propTypes = {
 
 };
 
-export default Squad;
+export default Squads;

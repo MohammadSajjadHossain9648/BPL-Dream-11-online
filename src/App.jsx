@@ -37,33 +37,32 @@ function App() {
 
   // notify the alert
   const notify1 = () => {
-    // toast.warning("Insufficient funds for this bid!");
     toast.warning('Insufficient funds for this bid!', {
       position: "top-center",
       autoClose: 5000,
-      });
+    });
   }
 
   const notify2 = (name) => {
-    // toast.warning("Insufficient funds for this bid!");
-    toast.alert('${name} has already been selected. Please choose another player!', {
+    toast.alert(`${name} has already been selected. Please choose another player!`, {
       position: "top-center",
       autoClose: 5000,
-      });
+    });
   }
 
   const notify3 = (name) => {
-    // toast.warning("Insufficient funds for this bid!");
-    toast.success('Congrats to ${name}! Excited to see you shine!', {
+    toast.success(`Congrats to ${name}! Excited to see you shine!`, {
       position: "top-center",
       autoClose: 5000,
-      });
+    });
   }
-  //check the player is sold or not
-  const [selectedPlayers, setSelectedPlayers] = ([]);
 
-  const handleToChoosePlayer = (player) => {
-    const {name, bidding_price} = player;
+
+  //check the player is sold or not
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
+
+  const handleToChoosePlayer = (candidate) => {
+    const {id, name, bidding_price} = candidate;
 
     //check balance to bid a player
     if(coins < bidding_price){
@@ -72,17 +71,21 @@ function App() {
     }
 
     //check the player is already selected or not
-    selectedPlayers.map(selectedPlayer => {
-      if(selectedPlayer.name === name){
-        notify2();
-        return ;
-      }
-    });
+    const isSelected = selectedPlayers.find(selectedPlayer => selectedPlayer.id === id);
 
-    const updateSelectedPlayer = [...selectedPlayers, player];
-    setSelectedPlayers(updateSelectedPlayer);
+    if(isSelected || selectedPlayers.length === 11){
+      notify2(name);
+      return ;
+    }
 
-    notify3();
+    //update the available coin, selected player and selected player number
+    const updateSelectedPlayers = [...selectedPlayers, candidate];
+    setSelectedPlayers(updateSelectedPlayers);
+
+    const updateCoins = coins - bidding_price;
+    setCoins(updateCoins);
+
+    notify3(name);
   }
 
   return (
@@ -96,6 +99,8 @@ function App() {
             isActive={isActive}
             handlePageChange={handlePageChange}
             handleToChoosePlayer={handleToChoosePlayer}
+            selectedPlayers={selectedPlayers}
+            selectedNumber={selectedPlayers.length}
         ></PlayerSelection>
       </div>
 
