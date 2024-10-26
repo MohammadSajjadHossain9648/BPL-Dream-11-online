@@ -3,6 +3,8 @@ import './App.css'
 import Header from './components/Header/Header';
 import PlayerSelection from './components/PlayerSelection/PlayerSelection';
 import Footer from './components/Footer/Footer';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [coins, setCoins] = useState(0);
@@ -33,6 +35,30 @@ function App() {
     }
   }
 
+  // notify the alert
+  const notify1 = () => {
+    // toast.warning("Insufficient funds for this bid!");
+    toast.warning('Insufficient funds for this bid!', {
+      position: "top-center",
+      autoClose: 5000,
+      });
+  }
+
+  const notify2 = (name) => {
+    // toast.warning("Insufficient funds for this bid!");
+    toast.alert('${name} has already been selected. Please choose another player!', {
+      position: "top-center",
+      autoClose: 5000,
+      });
+  }
+
+  const notify3 = (name) => {
+    // toast.warning("Insufficient funds for this bid!");
+    toast.success('Congrats to ${name}! Excited to see you shine!', {
+      position: "top-center",
+      autoClose: 5000,
+      });
+  }
   //check the player is sold or not
   const [selectedPlayers, setSelectedPlayers] = ([]);
 
@@ -41,14 +67,14 @@ function App() {
 
     //check balance to bid a player
     if(coins < bidding_price){
-      alert("Insufficient funds for this bid!")
+      notify1();
       return ;
     }
 
     //check the player is already selected or not
     selectedPlayers.map(selectedPlayer => {
       if(selectedPlayer.name === name){
-        alert("Player is already selected!")
+        notify2();
         return ;
       }
     });
@@ -56,7 +82,7 @@ function App() {
     const updateSelectedPlayer = [...selectedPlayers, player];
     setSelectedPlayers(updateSelectedPlayer);
 
-    console.log(selectedPlayers);
+    notify3();
   }
 
   return (
@@ -72,9 +98,12 @@ function App() {
             handleToChoosePlayer={handleToChoosePlayer}
         ></PlayerSelection>
       </div>
-      
+
       {/* footer section */}
       <Footer></Footer>
+
+      {/* toast notification */}
+      <ToastContainer></ToastContainer>
     </>
   )
 }
