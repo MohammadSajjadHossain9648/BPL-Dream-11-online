@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import profile from '../../assets/profile.svg';
 import flag from '../../assets/flag.svg';
 
-const Candidate = ({ candidate }) => {
+const Candidate = ({ candidate, handleToChoosePlayer }) => {
     const {name, country, img, role, batting_type, bowling_type, bidding_price} = candidate;
 
     return (
@@ -31,7 +31,7 @@ const Candidate = ({ candidate }) => {
                 </div>
                 <div className="flex justify-between items-center">
                     <p className="text-sm font-semibold">Price: ${bidding_price}</p>
-                    <button className="btn text-xs font-normal bg-white_color rounded-md">Choose Player</button>
+                    <button onClick={() => handleToChoosePlayer(candidate)} className="btn text-xs font-normal bg-white_color rounded-md">Choose Player</button>
                 </div>
             </div>
         </div>
