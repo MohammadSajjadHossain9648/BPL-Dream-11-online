@@ -39,21 +39,28 @@ function App() {
   const notify1 = () => {
     toast.warning('Insufficient funds for this bid!', {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 3000,
     });
   }
 
   const notify2 = (name) => {
     toast.error(`${name} has already been selected. Please choose another player!`, {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 3000,
     });
   }
 
-  const notify3 = (name) => {
+  const notify3 = () => {
+    toast.error(`No extra player allowed!`, {
+      position: "top-center",
+      autoClose: 3000,
+    });
+  }
+
+  const notify4 = (name) => {
     toast.success(`Congrats to ${name}! Excited to see you shine!`, {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 3000,
     });
   }
 
@@ -73,8 +80,12 @@ function App() {
     //check the player is already selected or not
     const isSelected = selectedPlayers.find(selectedPlayer => selectedPlayer.id === id);
 
-    if(isSelected || selectedPlayers.length === 11){
+    if(isSelected){
       notify2(name);
+      return ;
+    }
+    if(selectedPlayers.length === 11){
+      notify3();
       return ;
     }
 
@@ -85,13 +96,16 @@ function App() {
     const updateCoins = coins - bidding_price;
     setCoins(updateCoins);
 
-    notify3(name);
+    notify4(name);
   }
 
   const handleToRemovePlayer = (player) => {
-    const {id} = player;
+    const {id, bidding_price} = player;
     const updateSelectedPlayers = selectedPlayers.filter(selectedPlayer => selectedPlayer.id !== id);
     setSelectedPlayers(updateSelectedPlayers);
+
+    const updateCoins = coins + bidding_price;
+    setCoins(updateCoins);
   }
 
   return (

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import './PlayerSelection.css'
 import Candidates from '../Candidates/Candidates';
 import Squads from '../Squads/Squads';
 
