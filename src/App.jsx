@@ -98,7 +98,11 @@ function App() {
     <>
       <div className="sm:mx-4 md:mx-12 lg:mx-20">
         {/* header section */}
-        <Header coins={coins} handleToAddCoin={handleToAddCoin}></Header>
+        <Header
+            coins={coins}
+            handleToAddCoin={handleToAddCoin}
+            isActive={isActive}
+        ></Header>
 
         {/* player section */}
         <PlayerSelection

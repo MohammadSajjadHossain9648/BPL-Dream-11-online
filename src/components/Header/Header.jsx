@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png';
 import coin from '../../assets/coin.svg';
 import Banner from '../Banner/Banner';
 
-const Header = ({ coins, handleToAddCoin }) => {
+const Header = ({ coins, handleToAddCoin, isActive }) => {
     return (
         <div>
             {/* navbar design */}
@@ -58,7 +58,7 @@ const Header = ({ coins, handleToAddCoin }) => {
             </div>
 
             {/* banner design */}
-            <Banner handleToAddCoin={handleToAddCoin}></Banner>
+            <Banner handleToAddCoin={handleToAddCoin} isActive={isActive}></Banner>
         </div>
     );
 };
@@ -66,6 +66,7 @@ const Header = ({ coins, handleToAddCoin }) => {
 Header.propTypes = {
     coins: PropTypes.number.isRequired,
     handleToAddCoin: PropTypes.func.isRequired,
+    isActive: PropTypes.object.isRequired,
 };
 
 export default Header;
