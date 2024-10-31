@@ -54,7 +54,7 @@ const Footer = () => {
                         </p>
                         <div className="relative mt-4">
                             <input type="email" placeholder="Enter your email"
-                            className="w-full pr-20 text-black_color border border-shade_white_border_color rounded-lg py-1.5 pl-5 focus:outline-none placeholder:text-xs placeholder:text-shade_black_placeholder_color"
+                            className="w-full pr-32 text-black_color border border-shade_white_border_color rounded-lg py-1.5 pl-5 focus:outline-none placeholder:text-xs placeholder:text-shade_black_placeholder_color"
                             />
                             <button className="absolute right-0 top-0 h-full w-2/5 rounded-r-lg text-xs font-bold text-greenish_blue_color bg-gradient-to-l from-pink-400 via-yellow-500 to-orange-200 shadow-custom_inset">Subscribe</button>
                         </div>
